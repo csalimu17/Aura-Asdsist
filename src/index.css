@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", serif;
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-subtle: var(--border-subtle);
+}
+
+:root {
+  --bg-primary: #F5F5F3;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: rgba(26, 26, 26, 0.4);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #141414;
+  --text-primary: #F5F5F3;
+  --text-secondary: rgba(245, 245, 243, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary font-sans antialiased transition-colors duration-300 selection:bg-text-primary selection:text-bg-primary;
+  }
+}
+
+.markdown-body {
+  @apply text-base leading-relaxed font-sans;
+}
+
+.markdown-body p {
+  @apply mb-6 last:mb-0;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply font-serif italic font-bold mb-6 mt-12 first:mt-0 tracking-tight text-text-primary;
+}
+
+.markdown-body h1 { @apply text-4xl; }
+.markdown-body h2 { @apply text-3xl; }
+.markdown-body h3 { @apply text-2xl; }
+
+.markdown-body ul, .markdown-body ol {
+  @apply mb-8 pl-6 space-y-3;
+}
+
+.markdown-body ul { @apply list-disc marker:text-text-primary/30; }
+.markdown-body ol { @apply list-decimal marker:text-text-primary/30; }
+
+.markdown-body li {
+  @apply pl-2;
+}
+
+.markdown-body code {
+  @apply font-mono bg-text-primary/5 px-2 py-0.5 rounded-lg text-[0.85em] font-medium text-text-primary;
+}
+
+.markdown-body pre {
+  @apply overflow-x-auto mb-8 font-mono text-sm rounded-3xl border border-border-subtle bg-bg-secondary shadow-sm;
+}
+
+.markdown-body blockquote {
+  @apply border-l-2 border-text-primary pl-8 italic my-10 text-text-primary/60 text-lg;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse mb-10 text-sm overflow-hidden rounded-[2rem] border border-border-subtle bg-white shadow-sm;
+}
+
+.markdown-body th, .markdown-body td {
+  @apply border-b border-border-subtle p-4 text-left;
+}
+
+.markdown-body th {
+  @apply bg-text-primary/5 font-bold uppercase tracking-widest text-[10px];
+}
+
+.markdown-body tr:last-child td {
+  @apply border-b-0;
+}
+
+.markdown-body img {
+  @apply rounded-2xl shadow-xl my-8 mx-auto max-w-full;
+}
+
+.glass-panel {
+  @apply bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-white/20 dark:border-white/5;
+}
+
+.editorial-shadow {
+  @apply shadow-[0_20px_50px_rgba(0,0,0,0.1)];
+}
+
